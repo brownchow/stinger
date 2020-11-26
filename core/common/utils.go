@@ -1,9 +1,11 @@
 package common
 
 import (
+	"bytes"
 	"fmt"
-	"github.com/sirupsen/logrus"
 	"net"
+
+	"github.com/sirupsen/logrus"
 )
 
 func ByteFormat(length uint64) string {
@@ -20,12 +22,8 @@ func ByteFormat(length uint64) string {
 }
 
 func In(num byte, list []byte) bool {
-	for _, e := range list {
-		if e == num {
-			return true
-		}
-	}
-	return false
+	subslice := []byte{num}
+	return bytes.Contains(list, subslice)
 }
 
 var ipAddress string

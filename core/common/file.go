@@ -1,10 +1,11 @@
 package common
 
 import (
-	"github.com/sirupsen/logrus"
 	"io/ioutil"
 	"os"
 	"path"
+
+	"github.com/sirupsen/logrus"
 )
 
 var (
@@ -20,8 +21,7 @@ func init() {
 }
 
 func GetAbsPath(filename string) (absPath string) {
-	absPath = path.Join(root, filename)
-	return
+	return path.Join(root, filename)
 }
 
 func ReadFile(filePath string) []byte {
